@@ -1,3 +1,3 @@
-# My plugin [![Build Status](https://travis-ci.org/czipperz/vick-plugin-base.svg?branch=master)](https://travis-ci.org/czipperz/vick-plugin-base)
+# vick-compile [![Build Status](https://travis-ci.org/czipperz/vick-compile.svg?branch=master)](https://travis-ci.org/czipperz/vick-compile)
 
-What it does, how to use in `configuration.cc`
+Allows you to compile a project easily.
