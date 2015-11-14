@@ -6,9 +6,12 @@
 #include "../../../src/split.hh"
 #include "../../vick-shell-command/src/shell_command.hh"
 #include "../../../src/file_contents.hh"
-#include "../../../src/contents.hh"
 #include "../../../src/prompt.hh"
 #include "../../../src/mode.hh"
+#include "compile.hh"
+
+namespace vick {
+namespace compile {
 
 static std::string last_cmd;
 
@@ -16,8 +19,8 @@ static int compile__(std::string last_cmd, contents& cont)
 {
     // contents cont(&read_only_mode);
     try {
-        exec_shell_command(last_cmd + " ; printf '\n%s\n' \"$?\"", cont);
-        // Space required here:        ^   so that ``;;`` won't occur by accident
+        shell_command::exec_shell_command(last_cmd + " ; printf '\n%s\n' \"$?\"", cont);
+        // Space required here: ~~~~~~~~~~~~~~~~~~~~~~^ so that ``;;`` won't occur by accident
     } catch (const std::exception&) {}
     int ret = std::stoi(cont.cont.back());
     cont.cont.pop_back();
@@ -46,4 +49,7 @@ compile_project(contents& cont, boost::optional<int> force_prompt)
     if (res != 0) show_message("ERROR! " + std::to_string(res));
 
     return boost::none;
+}
+
+}
 }
