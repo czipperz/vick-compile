@@ -15,7 +15,7 @@ namespace compile {
 
 static std::string last_cmd;
 
-static int compile__(std::string last_cmd, contents& cont)
+static int compile(std::string last_cmd, contents& cont)
 {
     // contents cont(&read_only_mode);
     try {
@@ -39,7 +39,7 @@ compile_project(contents& cont, boost::optional<int> force_prompt)
         if (not temp) return boost::none;
     }
 
-    std::packaged_task<int(std::string, contents&)> tsk(compile__);
+    std::packaged_task<int(std::string, contents&)> tsk(compile);
     auto future = tsk.get_future();
 
     std::thread thread(std::move(tsk), last_cmd, std::ref(cont));
