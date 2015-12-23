@@ -24,19 +24,19 @@ static int compile__(std::string last_cmd, contents& cont)
     } catch (const std::exception&) {}
     int ret = std::stoi(cont.cont.back());
     cont.cont.pop_back();
-    if(cont.cont.back().size() == 0) cont.cont.pop_back();
+    if (cont.cont.back().size() == 0) cont.cont.pop_back();
     return ret;
 }
 
 boost::optional<std::shared_ptr<change> >
 compile_project(contents& cont, boost::optional<int> force_prompt)
 {
-    if (force_prompt || last_cmd.empty()) {
+    if (force_prompt or last_cmd.empty()) {
         attron(COLOR_PAIR(1));
         auto temp = prompt("Compile command: ");
         if (temp) last_cmd = *temp;
         attroff(COLOR_PAIR(1));
-        if (!temp) return boost::none;
+        if (not temp) return boost::none;
     }
 
     std::packaged_task<int(std::string, contents&)> tsk(compile__);
