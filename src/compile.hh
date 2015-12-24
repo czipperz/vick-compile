@@ -6,8 +6,10 @@
 namespace vick {
 namespace compile {
 
+/*!
+ */
 boost::optional<std::shared_ptr<change> >
-compile_project(contents& unused, boost::optional<int> force_prompt);
+compile_project(contents& unused, boost::optional<int> force_prompt = boost::none);
 
 }
 }
