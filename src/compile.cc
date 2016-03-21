@@ -44,6 +44,7 @@ compile_project(contents& cont, boost::optional<int> force_prompt)
 
     std::thread thread(std::move(tsk), last_cmd, std::ref(cont));
     thread.join();
+    //     ^^^^ TODO: FIXME.  Makes a thread then immediately joins.
 
     int res = future.get();
     if (res != 0) show_message("ERROR! " + std::to_string(res));
