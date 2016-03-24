@@ -30,7 +30,7 @@ static int compile(std::string last_cmd, contents& cont) {
     }
     int ret = std::stoi(cont.cont.back());
     cont.cont.pop_back();
-    if (cont.cont.back().size() == 0)
+    if (cont.cont.back().empty())
         cont.cont.pop_back();
     return ret;
 }
