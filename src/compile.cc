@@ -2,12 +2,12 @@
 #include <future>
 #include <ncurses.h>
 
-#include "../../../src/show_message.hh"
-#include "../../../src/split.hh"
-#include "../../vick-shell-command/src/shell_command.hh"
-#include "../../../src/file_contents.hh"
-#include "../../../src/prompt.hh"
-#include "../../../src/mode.hh"
+#include "show_message.hh"
+#include "split.hh"
+#include "vick-shell-command/src/shell_command.hh"
+#include "file_contents.hh"
+#include "prompt.hh"
+#include "mode.hh"
 #include "compile.hh"
 
 namespace vick {

@@ -1,7 +1,7 @@
 #ifndef HEADER_GUARD_COMPILE_H
 #define HEADER_GUARD_COMPILE_H
 
-#include "../../../src/contents.hh"
+#include "contents.hh"
 
 namespace vick {
 namespace compile {
