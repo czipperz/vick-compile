@@ -47,14 +47,15 @@ compile_project(contents& cont, boost::optional<int> force_prompt) {
             return boost::none;
     }
 
-    std::packaged_task<int(std::string, contents&)> tsk(compile);
-    auto future = tsk.get_future();
+    // std::packaged_task<int(std::string, contents&)> tsk(compile);
+    // auto future = tsk.get_future();
 
-    std::thread thread(std::move(tsk), last_cmd, std::ref(cont));
-    thread.join();
-    //     ^^^^ TODO: FIXME.  Makes a thread then immediately joins.
+    // std::thread thread(std::move(tsk), last_cmd, std::ref(cont));
+    // thread.join();
+    // //     ^^^^ TODO: FIXME.  Makes a thread then immediately joins.
 
-    int res = future.get();
+    // int res = future.get();
+    int res = compile(last_cmd, cont);
     if (res != 0)
         show_message("ERROR! " + std::to_string(res));
 
