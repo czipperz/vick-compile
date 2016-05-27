@@ -2,17 +2,17 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include <thread>
-#include <future>
 #include <ncurses.h>
+#include <future>
+#include <thread>
 
+#include "compile.hh"
+#include "file_contents.hh"
+#include "mode.hh"
+#include "prompt.hh"
 #include "show_message.hh"
 #include "split.hh"
 #include "vick-shell-command/src/shell_command.hh"
-#include "file_contents.hh"
-#include "prompt.hh"
-#include "mode.hh"
-#include "compile.hh"
 
 namespace vick {
 namespace compile {
@@ -56,7 +56,8 @@ compile_project(contents& cont, boost::optional<int> force_prompt) {
 
     // std::thread thread(std::move(tsk), last_cmd, std::ref(cont));
     // thread.join();
-    // //     ^^^^ TODO: FIXME.  Makes a thread then immediately joins.
+    // //     ^^^^ TODO: FIXME.  Makes a thread then immediately
+    // joins.
 
     // int res = future.get();
     int res = compile(last_cmd, cont);
