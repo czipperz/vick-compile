@@ -11,7 +11,7 @@ namespace vick {
 namespace compile {
 
 /*!
- * \file compile.hh
+ * \file
  * \brief Defines the `compile_project()` command.
  */
 

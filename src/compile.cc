@@ -6,13 +6,13 @@
 #include <future>
 #include <thread>
 
-#include "compile.hh"
+#include "../lib.hh"
 #include "file_contents.hh"
 #include "mode.hh"
 #include "prompt.hh"
 #include "show_message.hh"
 #include "split.hh"
-#include "vick-shell-command/src/shell_command.hh"
+#include "vick-shell-command/lib.hh"
 
 namespace vick {
 namespace compile {
