@@ -22,12 +22,12 @@ static int compile(std::string last_cmd, contents& cont) {
     // contents cont(&read_only_mode);
     try {
         shell_command::exec_shell_command(last_cmd + " ; printf "
+                                          // ~~~~~~~~~~^
+                                          // Space required here
+                                          // so that ``;;`` won't
+                                          // occur by accident
                                                      "'\n%s\n' "
                                                      "\"$?\"",
-                                          // Space required here:
-                                          // ~~~~~~~~~~~~~~~^ so that
-                                          // ``;;`` won't
-                                          // occur by accident
                                           cont);
     } catch (const std::exception&) {
     }
