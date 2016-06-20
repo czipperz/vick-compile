@@ -11,7 +11,6 @@
 #include "mode.hh"
 #include "prompt.hh"
 #include "show_message.hh"
-#include "split.hh"
 #include "vick-shell-command/lib.hh"
 
 namespace vick {
