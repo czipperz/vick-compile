@@ -38,7 +38,7 @@ static int compile(std::string last_cmd, contents& cont) {
     return ret;
 }
 
-boost::optional<std::shared_ptr<change> >
+std::shared_ptr<change>
 compile_project(contents& cont, boost::optional<int> force_prompt) {
     if (force_prompt or last_cmd.empty()) {
         attron(COLOR_PAIR(1));
@@ -47,7 +47,7 @@ compile_project(contents& cont, boost::optional<int> force_prompt) {
         if (temp)
             last_cmd = *temp;
         else
-            return boost::none;
+            return nullptr;
     }
 
     // std::packaged_task<int(std::string, contents&)> tsk(compile);
@@ -63,7 +63,7 @@ compile_project(contents& cont, boost::optional<int> force_prompt) {
     if (res != 0)
         show_message("ERROR! " + std::to_string(res));
 
-    return boost::none;
+    return nullptr;
 }
 }
 }

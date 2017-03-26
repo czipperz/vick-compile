@@ -19,7 +19,7 @@ namespace compile {
  * \brief This command is for interactive use.  It will call a command
  * prompted the first time ran and each time a prefix is given.
  */
-boost::optional<std::shared_ptr<change> >
+std::shared_ptr<change>
 compile_project(contents& unused,
                 boost::optional<int> force_prompt = boost::none);
 }
